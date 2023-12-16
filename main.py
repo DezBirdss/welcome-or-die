@@ -8,32 +8,16 @@ from discord import app_commands
 import discord
 import datetime
 from discord.ext import commands, tasks
-
 from typing import Optional
-
-import sentry_sdk
 import asyncio
-
 import os
 from dotenv import load_dotenv
 from jishaku import Jishaku
 import jishaku
-
 import time
 load_dotenv()
 PREFIX = os.getenv('PREFIX')
 TOKEN = os.getenv('TOKEN')
-
-
-
-
-
-
-
-
-
-
-
 
 class client(commands.Bot):
     def __init__(self):
