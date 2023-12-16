@@ -1,1 +1,3 @@
-**https://discord.gg/Wq4rAG4JxW** -> Seeing how many people will join
+# Welcome Or Die
+<br>
+This is an old concept I had I decided to make really simple.
