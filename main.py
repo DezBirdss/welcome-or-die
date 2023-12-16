@@ -61,7 +61,7 @@ class client(commands.Bot):
         print(prfx + " Bot is in " + str(len(self.guilds)) + " servers")
  
     async def on_connect(self):
-        activity2 = discord.CustomActivity(name=f"Welcome users or they die")
+        activity2 = discord.CustomActivity(name=STATUS)
 
         print("Connected to Discord Gateway!")
         await self.change_presence(activity=activity2)
