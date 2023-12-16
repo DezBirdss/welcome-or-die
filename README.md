@@ -8,6 +8,9 @@
 ## Project background
 *This bot is not commercial; it's a personal, fun project.*
 
+* You need to edit the channel id manually.
+https://github.com/DezBirdss/welcome-or-die/blob/main/Cogs/Events/welcome.py
+
 
 
 
