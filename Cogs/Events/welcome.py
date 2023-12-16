@@ -21,8 +21,6 @@ class welcomeevent(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        print(f"Member {member.name} joined the server.")
-        
 
         welcome_channel = member.guild.get_channel(1185596178155450541)
         print(welcome_channel)
