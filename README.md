@@ -1,9 +1,15 @@
 # Overview
-**Welcome Or Die** is a bot which requires people to welcome people to the server or that user will be die (Kicked from the server)
+**Welcome Or Die** is a bot that mandates user greetings upon joining the server; failure to do so results in a kick from the server after 30 seconds. If a user joining the server is not welcomed, they will be kicked.
+
 
 # Feature
-1. Welcome Message ()
+1. **Welcome Message Kick:** Users face expulsion after 30 seconds if not welcomed.
 
-# Why though?
-**A While ago..** I decided to try and create this bot I was really bad at python at the time and failed miserably so I decided to remake it *7 months later* this bot isn't commercial this is just a fun project I decided to work on.
+# Project Background
+*A while ago, I attempted to create this bot with limited Python skills and faced failure. Seven months later, with improved proficiency, I remade it. This bot is not commercial; it's a personal, fun project.*
+
+
+
+
+
 
