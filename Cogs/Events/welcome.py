@@ -46,7 +46,6 @@ class welcomeevent(commands.Cog):
                 await msg.reply(f"❤️ **Congratulations, {member.display_name}**, you have survived! 🎉")
 
             except asyncio.TimeoutError:
-                print(f"Timeout for {member.name}. Kicking...")
                 await welcome_channel.send(f"<:Dead:1185597929780678786> {member.mention} has died from no one welcoming them.")
                 await member.kick(reason="No one welcomed them")
                 await msg.reply(f"🫀 **I'm sorry, {member.mention}**, no one welcomed you. You have died. 💀")
