@@ -12,6 +12,7 @@ import platform
 class ping(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
+        self.launch_time = datetime.datetime.utcnow()
   
     @commands.hybrid_command(description="Check the bots latency & uptime")
     async def ping(self, ctx):
