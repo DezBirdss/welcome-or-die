@@ -27,7 +27,10 @@ class welcomeevent(commands.Cog):
         if welcome_channel:
             welcome_message = f'👋 Welcome {member.mention} to **{member.guild.name}**!\n<:ArrowDropDown:1185612975969677322> Please say **"welcome"** *to save this person life.* (They will be kicked in 30 seconds)'
             await welcome_channel.send(welcome_message)
-            msg = await member.send(f"👋 **Welcome to the server, {member.mention}!** Brace yourself, though. 🚨 To survive, you must earn a welcome from a fellow member. Good luck! 🌟")
+            try:
+             msg = await member.send(f"👋 **Welcome to the server, {member.mention}!** Brace yourself, though. 🚨 To survive, you must earn a welcome from a fellow member. Good luck! 🌟")
+            except discord.Forbidden: 
+                    pass 
             await welcome_channel.set_permissions(member, send_messages=False)
 
             try:
@@ -42,13 +45,18 @@ class welcomeevent(commands.Cog):
 
                 await welcome_channel.send(f"❤️ {member.mention} has been saved by **@{response.author.name}**")
                 await welcome_channel.set_permissions(member, send_messages=True) 
-                await msg.reply(f"❤️ **Congratulations, {member.display_name}**, you have survived! 🎉")
+                try: 
+                 await msg.reply(f"❤️ **Congratulations, {member.display_name}**, you have survived! 🎉")
+                except discord.Forbidden: 
+                    pass 
 
             except asyncio.TimeoutError:
                 await welcome_channel.send(f"<:Dead:1185597929780678786> {member.mention} has died from no one welcoming them.")
                 await member.kick(reason="No one welcomed them")
-                await msg.reply(f"🫀 **I'm sorry, {member.mention}**, no one welcomed you. You have died. 💀")
-
+                try:
+                 await msg.reply(f"🫀 **I'm sorry, {member.mention}**, no one welcomed you. You have died. 💀")
+                except discord.Forbidden: 
+                    pass 
 
 async def setup(client: commands.Bot) -> None:
     await client.add_cog(welcomeevent(client))     
