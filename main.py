@@ -8,16 +8,32 @@ from discord import app_commands
 import discord
 import datetime
 from discord.ext import commands, tasks
+
 from typing import Optional
+
+import sentry_sdk
 import asyncio
+
 import os
 from dotenv import load_dotenv
 from jishaku import Jishaku
 import jishaku
+
 import time
 load_dotenv()
 PREFIX = os.getenv('PREFIX')
 TOKEN = os.getenv('TOKEN')
+STATUS = os.getenv('STATUS')
+
+
+
+
+
+
+
+
+
+
 
 class client(commands.Bot):
     def __init__(self):
@@ -28,28 +44,16 @@ class client(commands.Bot):
         self.client = client
         self.cogslist = ["Cogs.Events.welcome", "Cogs.Commands.Utilties.botinfo"]
 
-
-
-
     async def load_jishaku(self):
         await self.wait_until_ready()
         await self.load_extension('jishaku')        
-        print("Jishaku Loaded")
-
-
-
-
-
 
     async def setup_hook(self):
         self.loop.create_task(self.load_jishaku()) 
 
-
-
-
         for ext in self.cogslist:
             await self.load_extension(ext)
-            print(f"Cog {ext} loaded")
+            print(f"{ext} loaded")
 
 
     async def on_ready(self):
@@ -61,13 +65,7 @@ class client(commands.Bot):
         synced = await self.tree.sync()
         print(prfx + " Slash CMDs Synced " + str(len(synced)) + " Commands")
         print(prfx + " Bot is in " + str(len(self.guilds)) + " servers")
-
-        
-        
-
-
-
-    
+ 
     async def on_connect(self):
         activity2 = discord.CustomActivity(name=f"Welcome users or they die")
 
@@ -77,25 +75,5 @@ class client(commands.Bot):
     async def on_disconnect(self):
         print("Disconnected from Discord Gateway!")
 
-
-
-    async def is_owner(self, user: discord.User):
-        if user.id in [
-            795743076520820776
-
-
-
-        ]:
-            return True
-
-        return await super().is_owner(user)
-
-
 client = client()
-
-
-      
-
-
-
 client.run(TOKEN)    
