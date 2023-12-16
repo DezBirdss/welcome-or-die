@@ -10,10 +10,6 @@ import datetime
 from discord.ext import commands, tasks
 
 from typing import Optional
-
-import sentry_sdk
-import asyncio
-
 import os
 from dotenv import load_dotenv
 from jishaku import Jishaku
