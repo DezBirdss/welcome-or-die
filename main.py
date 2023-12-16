@@ -26,7 +26,7 @@ class client(commands.Bot):
         intents.message_content = True
         super().__init__(command_prefix=commands.when_mentioned_or(PREFIX), intents=intents)
         self.client = client
-        self.cogslist = ["Cogs.Events.welcome", "Cogs.Commands.Utilities.botinfo"]
+        self.cogslist = ["Cogs.Events.welcome", "Cogs.Commands.Utilties.botinfo"]
 
 
 
