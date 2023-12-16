@@ -4,13 +4,17 @@ from discord.ext import commands
 from typing import Literal
 import datetime
 from datetime import timedelta
+import asyncio
 from discord import app_commands
 from discord.ext import commands, tasks
+import pytz
+from pymongo import MongoClient
 import platform
 from dotenv import load_dotenv
 import os
-Channelid = os.getenv('WelcomeChannelID')
 load_dotenv()
+Channelid = os.getenv('WelcomeChannelID')
+
 
 class welcomeevent(commands.Cog):
     def __init__(self, client: commands.Bot):
@@ -19,7 +23,7 @@ class welcomeevent(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         print(f"Member {member.name} joined the server.")
-
+        Channelid = os.getenv('WelcomeChannelID')
         welcome_channel = member.guild.get_channel(Channelid)
 
         if welcome_channel:
