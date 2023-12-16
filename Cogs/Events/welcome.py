@@ -10,6 +10,10 @@ from discord.ext import commands, tasks
 import pytz
 from pymongo import MongoClient
 import platform
+from dotenv import load_dotenv
+import os
+Channelid = os.getenv('WelcomeChannelID')
+load_dotenv()
 
 class welcomeevent(commands.Cog):
     def __init__(self, client: commands.Bot):
@@ -18,8 +22,8 @@ class welcomeevent(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         print(f"Member {member.name} joined the server.")
-        welcome_channel_id = 1185596178155450541 
-        welcome_channel = member.guild.get_channel(welcome_channel_id)
+
+        welcome_channel = member.guild.get_channel(Channelid)
 
         if welcome_channel:
             welcome_message = f'👋 Welcome {member.mention} to **{member.guild.name}**!\n<:ArrowDropDown:1185612975969677322> Please say **"welcome"** *to save this person life.* (They will be kicked in 30 seconds)'
@@ -36,8 +40,6 @@ class welcomeevent(commands.Cog):
                     )
 
                 response = await self.client.wait_for('message', check=check, timeout=30)
-                print(str(response.content))
-                print(f"Received 'welcome' from {response.author.name}")
 
                 await welcome_channel.send(f"❤️ {member.mention} has been saved by **@{response.author.name}**")
                 await welcome_channel.set_permissions(member, send_messages=True) 
