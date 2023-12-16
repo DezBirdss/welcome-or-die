@@ -1,0 +1,5 @@
+discord.py
+jishaku
+datetime
+typing
+python-dotenv
