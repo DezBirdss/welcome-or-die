@@ -5,8 +5,8 @@
 # Feature
 1. **Welcome Message Kick:** Users face expulsion after 30 seconds if not welcomed.
 
-## Information
-This bot is not commercial; it's a personal, fun project.*
+## Project background
+*This bot is not commercial; it's a personal, fun project.*
 
 
 
