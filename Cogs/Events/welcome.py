@@ -11,8 +11,8 @@ import pytz
 import platform
 from dotenv import load_dotenv
 import os
-load_dotenv()
-Channelid = os.getenv('WelcomeChannelID')
+
+
 
 
 class welcomeevent(commands.Cog):
@@ -22,9 +22,10 @@ class welcomeevent(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         print(f"Member {member.name} joined the server.")
-        Channelid = os.getenv('WelcomeChannelID')
-        welcome_channel = member.guild.get_channel(Channelid)
+        
 
+        welcome_channel = member.guild.get_channel(1185596178155450541)
+        print(welcome_channel)
         if welcome_channel:
             welcome_message = f'👋 Welcome {member.mention} to **{member.guild.name}**!\n<:ArrowDropDown:1185612975969677322> Please say **"welcome"** *to save this person life.* (They will be kicked in 30 seconds)'
             await welcome_channel.send(welcome_message)
