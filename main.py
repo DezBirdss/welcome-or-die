@@ -33,9 +33,7 @@ STATUS = os.getenv('STATUS')
 
 class client(commands.Bot):
     def __init__(self):
-        intents = discord.Intents.default()
-        intents.members = True
-        intents.message_content = True
+        intents = discord.Intents.all()
         super().__init__(command_prefix=commands.when_mentioned_or(PREFIX), intents=intents)
         self.client = client
         self.cogslist = ["Cogs.Events.welcome", "Cogs.Commands.Utilties.botinfo"]
