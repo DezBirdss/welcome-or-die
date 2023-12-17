@@ -21,7 +21,8 @@ class welcomeevent(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-
+        if member.bot:
+            return
         welcome_channel = member.guild.get_channel(1185596178155450541)
         if welcome_channel:
             welcome_message = f'👋 Welcome {member.mention} to **{member.guild.name}**!\n<:ArrowDropDown:1185612975969677322> Please say **"welcome"** *to save this person life.* (They will be kicked in 30 seconds)'
