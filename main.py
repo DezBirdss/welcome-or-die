@@ -36,7 +36,7 @@ class client(commands.Bot):
         intents = discord.Intents.all()
         super().__init__(command_prefix=commands.when_mentioned_or(PREFIX), intents=intents)
         self.client = client
-        self.cogslist = ["Cogs.Events.welcome", "Cogs.Commands.Utilties.botinfo", "Cogs.Commands.Utilties.ping"]
+        self.cogslist = ["Cogs.Events.welcome", "Cogs.Commands.Utilties.botinfo", "Cogs.Commands.Utilties.ping", "Cogs.Commands.Saves.savestats"]
 
     async def load_jishaku(self):
         await self.wait_until_ready()

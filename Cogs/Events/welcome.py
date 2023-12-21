@@ -12,8 +12,13 @@ import platform
 from dotenv import load_dotenv
 import os
 
+from motor.motor_asyncio import AsyncIOMotorClient
 
-
+URL = os.getenv('MONGO_URL')
+load_dotenv()
+client = AsyncIOMotorClient(URL)
+db = client["WelcomeOrDie"]
+saves = db["Saves"]
 
 class welcomeevent(commands.Cog):
     def __init__(self, client: commands.Bot):
@@ -47,6 +52,7 @@ class welcomeevent(commands.Cog):
                 await welcome_channel.set_permissions(member, send_messages=True) 
                 try: 
                  await msg.reply(f"❤️ **Congratulations, {member.display_name}**, you have survived! 🎉")
+                 await saves.update_one({'_id': response.author.id}, {'$inc': {'saves': 1}}, upsert=True)
                 except discord.Forbidden: 
                     pass 
 
