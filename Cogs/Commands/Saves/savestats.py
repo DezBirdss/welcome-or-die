@@ -27,7 +27,7 @@ class savestats(commands.Cog):
         return
     
 
-    @saves.command()
+    @saves.command(description="View how someone has times saved someone")
     async def stats(self, ctx, member: discord.Member = None):
         if member == None:
             member = ctx.author
