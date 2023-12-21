@@ -3,3 +3,4 @@ jishaku
 datetime
 typing
 python-dotenv
+motor
