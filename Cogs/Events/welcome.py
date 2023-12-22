@@ -47,12 +47,12 @@ class welcomeevent(commands.Cog):
                     )
 
                 response = await self.client.wait_for('message', check=check, timeout=30)
-
                 await welcome_channel.send(f"❤️ {member.mention} has been saved by **@{response.author.name}**")
                 await welcome_channel.set_permissions(member, send_messages=True) 
+                await saves.update_one({'_id': response.author.id}, {'$inc': {'saves': 1}}, upsert=True)
                 try: 
                  await msg.reply(f"❤️ **Congratulations, {member.display_name}**, you have survived! 🎉")
-                 await saves.update_one({'_id': response.author.id}, {'$inc': {'saves': 1}}, upsert=True)
+
                 except discord.Forbidden: 
                     pass 
 
